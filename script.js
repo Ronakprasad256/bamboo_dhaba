@@ -56,27 +56,21 @@ const DEFAULT_MENU = {
       "priceFull": 100.00
     }
   ],
-  "Starters": [
-    {
-      "name": "French Fries",
-      "priceFull": 100.00
-    },
-    {
-      "name": "Paneer Pakora",
-      "priceFull": 120.00
-    },
-    {
-      "name": "Chicken Pakora",
-      "priceFull": 140.00
-    },
-    {
-      "name": "Crispy Baby Corn",
-      "priceFull": 180.00
-    },
-    {
-      "name": "Chilli Paneer (Dry)",
-      "priceFull": 150.00
-    }
+  "Starter": [
+    { "name": "French Fries", "priceFull": 100.00 },
+    { "name": "Pea Nut Masala", "priceFull": 60.00 },
+    { "name": "Kaju Fry", "priceFull": 100.00 },
+    { "name": "Masala Papad", "priceFull": 30.00 },
+    { "name": "Papad Fry (2 Pcs)", "priceFull": 40.00 },
+    { "name": "Dry Papad (2 Pcs)", "priceFull": 20.00 },
+    { "name": "Chana Fry", "priceFull": 80.00 },
+    { "name": "Veg. Pakora", "priceFull": 100.00 },
+    { "name": "Paneer Pakora", "priceFull": 120.00 },
+    { "name": "Chicken Pakora", "priceFull": 140.00 },
+    { "name": "Crispy Baby Corn", "priceFull": 180.00 },
+    { "name": "Paneer 65", "priceFull": 160.00 },
+    { "name": "Baby Potato Fry", "priceFull": 60.00 },
+    { "name": "Chilli Paneer (Dry)", "priceFull": 150.00 }
   ],
   "Rolls": [
     {
@@ -156,6 +150,247 @@ const DEFAULT_MENU = {
     {
       "name": "Schezwan Fried Rice",
       "priceFull": 130.00
+    }
+  ],
+  "Rice & Biryani": [
+    {
+      "name": "Jeera Rice",
+      "priceFull": 80.00
+    },
+    {
+      "name": "Plain Rice",
+      "priceFull": 60.00
+    },
+    {
+      "name": "Peas Pulao",
+      "priceFull": 100.00
+    },
+    {
+      "name": "Veg Pulao",
+      "priceFull": 100.00
+    },
+    {
+      "name": "Veg Biryani (Half / Full)",
+      "priceHalf": 100.00,
+      "priceFull": 200.00
+    },
+    {
+      "name": "Egg Biryani (Half / Full)",
+      "priceHalf": 120.00,
+      "priceFull": 240.00
+    },
+    {
+      "name": "Chicken Biryani (Half / Full)",
+      "priceHalf": 140.00,
+      "priceFull": 280.00
+    },
+    {
+      "name": "Mutton Biryani (Half / Full)",
+      "priceHalf": 170.00,
+      "priceFull": 340.00
+    }
+  ],
+"Egg": [
+    {
+      "name": "Egg Boil (Single)",
+      "priceFull": 20.00
+    },
+    {
+      "name": "Egg Omelette (Double)",
+      "priceFull": 40.00
+    },
+    {
+      "name": "Egg Curry (Double Egg)",
+      "priceFull": 80.00
+    }
+  ],
+  "Drinks": [
+    {
+      "name": "Tea",
+      "priceFull": 20.00
+    },
+    {
+      "name": "Coffee",
+      "priceFull": 30.00
+    },
+    {
+      "name": "Cold Drinks (Sprite/Coke/Fanta/Thumbs Up)",
+      "priceFull": 50.00
+    }
+  ],
+  "Chicken": [
+    {
+      "name": "Chicken Masala (Half / Full)",
+      "priceHalf": 140.00,
+      "priceFull": 280.00
+    },
+    {
+      "name": "Chicken Curry (Half / Full)",
+      "priceHalf": 140.00,
+      "priceFull": 280.00
+    },
+    {
+      "name": "Chicken Dopyaza",
+      "priceFull": 290.00
+    },
+    {
+      "name": "Chicken Kadai",
+      "priceFull": 260.00
+    },
+    {
+      "name": "Chicken Butter Masala",
+      "priceFull": 350.00
+    },
+    {
+      "name": "Chicken Boil with Veg",
+      "priceFull": 300.00
+    },
+    {
+      "name": "Chicken Lollipop",
+      "priceFull": 250.00
+    },
+    {
+      "name": "Chicken 65",
+      "priceFull": 150.00
+    },
+    {
+      "name": "Chicken Dry Fry",
+      "priceFull": 150.00
+    },
+    {
+      "name": "Chicken Kebab (Bangalore Style)",
+      "priceFull": 170.00
+    },
+    {
+      "name": "Chilli Chicken Dry",
+      "priceFull": 150.00
+    }
+  ],
+  "Local Chicken": [
+    {
+      "name": "Local Chicken Curry (Half / Full)",
+      "priceHalf": 150.00,
+      "priceFull": 300.00
+    },
+    {
+      "name": "Local Chicken Masala (Half / Full)",
+      "priceHalf": 160.00,
+      "priceFull": 320.00
+    },
+    {
+      "name": "Local Chicken Fry (Half / Full)",
+      "priceHalf": 160.00,
+      "priceFull": 320.00
+    },
+    {
+      "name": "Local Chicken Boil (Half / Full)",
+      "priceHalf": 200.00,
+      "priceFull": 400.00
+    }
+  ],
+  "Mutton": [
+    {
+      "name": "Mutton Masala Curry (Half / Full)",
+      "priceHalf": 140.00,
+      "priceFull": 280.00
+    },
+    {
+      "name": "Mutton Masala",
+      "priceFull": 300.00
+    },
+    {
+      "name": "Mutton Kosha",
+      "priceFull": 320.00
+    },
+    {
+      "name": "Mutton Rezala",
+      "priceFull": 340.00
+    }
+  ],
+  "Pork": [
+    {
+      "name": "Pork Curry (Half / Full)",
+      "priceHalf": 130.00,
+      "priceFull": 250.00
+    },
+    {
+      "name": "Pork Fry / Sliced (Half / Full)",
+      "priceHalf": 130.00,
+      "priceFull": 250.00
+    },
+    {
+      "name": "Boil Pork with Bamboo Shoot (Half / Full)",
+      "priceHalf": 140.00,
+      "priceFull": 280.00
+    }
+  ],
+  "Fish": [
+    {
+      "name": "Fish Fry (Plate)",
+      "priceFull": 100.00
+    },
+    {
+      "name": "Fish Fry (Bahu)",
+      "priceFull": 90.00
+    },
+    {
+      "name": "Fish Tenga (Tomato)",
+      "priceFull": 110.00
+    },
+    {
+      "name": "Fish Curry Bahu (Mustard/Tomato)",
+      "priceFull": 110.00
+    },
+    {
+      "name": "Fish Curry (Local)",
+      "priceFull": 150.00
+    }
+  ],
+  "Duck": [
+    {
+      "name": "Duck Fry",
+      "priceFull": 150.00
+    },
+    {
+      "name": "Duck Curry (Half / Full)",
+      "priceHalf": 150.00,
+      "priceFull": 320.00
+    }
+  ],
+  "Dal & Sides": [
+    {
+      "name": "Dal Tadka (Half / Full)",
+      "priceHalf": 80.00,
+      "priceFull": 150.00
+    },
+    {
+      "name": "Egg Dal Tadka (Half / Full)",
+      "priceHalf": 100.00,
+      "priceFull": 200.00
+    },
+    {
+      "name": "Dal Fry",
+      "priceHalf": 70.00,
+      "priceFull": 140.00
+    },
+    {
+      "name": "Dal Makhani",
+      "priceHalf": 100.00,
+      "priceFull": 200.00
+    }
+  ],
+  "Salads": [
+    {
+      "name": "Cucumber Salad",
+      "priceFull": 50.00
+    },
+    {
+      "name": "Onion Salad",
+      "priceFull": 50.00
+    },
+    {
+      "name": "Mix Salad",
+      "priceFull": 70.00
     }
   ]
 };
