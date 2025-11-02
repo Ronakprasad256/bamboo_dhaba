@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dhaba Bamboo Hut — Editable Menu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+        <img src="./image/logo.jpg" alt="Logo" style="width: 120px; height: auto; object-fit: contain;" />
+
+      <div>
+        <h1>Dhaba Bamboo Hut</h1>
+        <!-- <small>Editable Menu — Save changes automatically</small> -->
+      </div>
+    </div>
+
+    <div class="controls">
+      <div id="category-tabs" class="tabs"></div>
+      <div class="top-actions">
+        <button id="add-item-btn" class="btn" title="Add item">+ Add Item</button>
+        <button id="edit-toggle" class="btn primary">Enable Edit Mode ✏️</button>
+        <button id="reset-btn" class="btn danger" title="Reset to default">Reset</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="menu-container" class="menu-grid"></section>
+  </main>
+
+  <template id="item-template">
+    <article class="menu-item">
+      <img class="item-img" src="https://via.placeholder.com/80" alt="food" />
+      <div class="item-body">
+        <div class="item-top">
+          <div class="item-name"></div>
+          <div class="item-prices">
+            <div class="half-price"></div>
+            <div class="full-price"></div>
+          </div>
+        </div>
+        <div class="item-meta">
+          <small class="item-cat"></small>
+        </div>
+
+        <div class="edit-controls" style="display:none">
+          <label>Image URL <input type="text" class="edit-img" /></label>
+          <label>Name <input type="text" class="edit-name" /></label>
+          <label>Half Price <input type="number" class="edit-half" min="0" /></label>
+          <label>Full Price <input type="number" class="edit-full" min="0" /></label>
+          <div class="edit-actions">
+            <button class="btn save">Save</button>
+            <button class="btn warn remove">Remove</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
