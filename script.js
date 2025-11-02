@@ -1,5 +1,6 @@
 /* ========= Editable Menu App =========
    Now includes:
+   - Real dish photos via Unsplash dynamic queries
    - Fixed image fallback using placehold.co
    - Removes half-price section if not present
    - Simple Admin Login to access edit features
@@ -12,169 +13,165 @@ const ADMIN_PASS = "12345";
 /* --------- Helpers --------- */
 function id(){ return "i" + Math.random().toString(36).slice(2, 9); }
 function placeholder(tag){ 
-  // Using reliable placehold.co
+  // Using reliable placehold.co as fallback
   return `https://placehold.co/160x160?text=${encodeURIComponent(tag)}`;
 }
 
-/* --------- Default menu --------- */
+/* --------- Default menu (with real dish photo queries) --------- */
 const DEFAULT_MENU = {
 
-   "Drinks": [
-    { id: id(), name: "Tea", img: placeholder("Tea"), fullPrice: 20 },
-    { id: id(), name: "Coffee", img: placeholder("Coffee"), fullPrice: 30 },
-    { id: id(), name: "Cold Drinks (Sprite/Coke/Fanta/Thumbs Up)", img: placeholder("Drinks"), fullPrice: 50 }
+  "Drinks": [
+    { id: id(), name: "Tea", img: "https://source.unsplash.com/featured/?tea,chai", fullPrice: 20 },
+    { id: id(), name: "Coffee", img: "https://source.unsplash.com/featured/?coffee,black+coffee", fullPrice: 30 },
+    { id: id(), name: "Cold Drinks (Sprite/Coke/Fanta/Thumbs Up)", img: "https://source.unsplash.com/featured/?soft+drink,soda", fullPrice: 50 }
   ],
 
   "Breads/Roti": [
-  { id: id(), name: "Roti", img: placeholder("Roti"), fullPrice: 10 },
-  { id: id(), name: "Butter Roti", img: placeholder("Roti"), fullPrice: 15 },
-  { id: id(), name: "Paratha", img: placeholder("Paratha"), fullPrice: 20 }
-],
+    { id: id(), name: "Roti", img: "https://source.unsplash.com/featured/?roti,indian+bread", fullPrice: 10 },
+    { id: id(), name: "Butter Roti", img: "https://source.unsplash.com/featured/?butter+roti,paratha", fullPrice: 15 },
+    { id: id(), name: "Paratha", img: "https://source.unsplash.com/featured/?paratha,stuffed+paratha", fullPrice: 20 }
+  ],
 
   "Starter": [
-    { id: id(), name: "French Fries", img: placeholder("Fries"), fullPrice: 100 },
-    { id: id(), name: "Pea Nut Masala", img: placeholder("Peanut"), fullPrice: 60 },
-    { id: id(), name: "Kaju Fry", img: placeholder("Kaju"), fullPrice: 100 },
-    { id: id(), name: "Masala Papad", img: placeholder("Papad"), fullPrice: 30 },
-    { id: id(), name: "Papad Fry (2 Pcs)", img: placeholder("Papad"), fullPrice: 40 },
-    { id: id(), name: "Dry Papad (2 Pcs)", img: placeholder("Papad"), fullPrice: 20 },
-    { id: id(), name: "Chana Fry", img: placeholder("Chana"), fullPrice: 80 },
-    { id: id(), name: "Veg. Pakora", img: placeholder("Pakora"), fullPrice: 100 },
-    { id: id(), name: "Paneer Pakora", img: placeholder("Paneer"), fullPrice: 120 },
-    { id: id(), name: "Chicken Pakora", img: placeholder("Chicken"), fullPrice: 140 },
-    { id: id(), name: "Crispy Baby Corn", img: placeholder("Corn"), fullPrice: 180 },
-    { id: id(), name: "Paneer 65", img: placeholder("Paneer65"), fullPrice: 160 },
-    { id: id(), name: "Baby Potato Fry", img: placeholder("Potato"), fullPrice: 60 },
-    { id: id(), name: "Chilli Paneer (Dry)", img: placeholder("Paneer"), fullPrice: 150 }
+    { id: id(), name: "French Fries", img: "https://source.unsplash.com/featured/?french+fries,fries", fullPrice: 100 },
+    { id: id(), name: "Pea Nut Masala", img: "https://source.unsplash.com/featured/?spicy+peas,masala+peanuts", fullPrice: 60 },
+    { id: id(), name: "Kaju Fry", img: "https://source.unsplash.com/featured/?kaju,cajun+nuts", fullPrice: 100 },
+    { id: id(), name: "Masala Papad", img: "https://source.unsplash.com/featured/?masala+papad,papad", fullPrice: 30 },
+    { id: id(), name: "Papad Fry (2 Pcs)", img: "https://source.unsplash.com/featured/?fried+papad,papad+fry", fullPrice: 40 },
+    { id: id(), name: "Dry Papad (2 Pcs)", img: "https://source.unsplash.com/featured/?papad,dry+papad", fullPrice: 20 },
+    { id: id(), name: "Chana Fry", img: "https://source.unsplash.com/featured/?chana,chole", fullPrice: 80 },
+    { id: id(), name: "Veg. Pakora", img: "https://source.unsplash.com/featured/?vegetable+pakora,pakora", fullPrice: 100 },
+    { id: id(), name: "Paneer Pakora", img: "https://source.unsplash.com/featured/?paneer+pakora,paneer+fritter", fullPrice: 120 },
+    { id: id(), name: "Chicken Pakora", img: "https://source.unsplash.com/featured/?chicken+pakora,chicken+fritter", fullPrice: 140 },
+    { id: id(), name: "Crispy Baby Corn", img: "https://source.unsplash.com/featured/?crispy+baby+corn,baby+corn", fullPrice: 180 },
+    { id: id(), name: "Paneer 65", img: "https://source.unsplash.com/featured/?paneer+65,indian+starter", fullPrice: 160 },
+    { id: id(), name: "Baby Potato Fry", img: "https://source.unsplash.com/featured/?baby+potato+fry,potato+fries", fullPrice: 60 },
+    { id: id(), name: "Chilli Paneer (Dry)", img: "https://source.unsplash.com/featured/?chilli+paneer,paneer+chilli", fullPrice: 150 }
   ],
 
   "Rolls": [
-    { id: id(), name: "Veg Roll", img: placeholder("Roll"), fullPrice: 50 },
-    { id: id(), name: "Egg Roll", img: placeholder("Roll"), fullPrice: 70 },
-    { id: id(), name: "Chicken Roll", img: placeholder("Roll"), fullPrice: 90 },
-    { id: id(), name: "Pork Roll", img: placeholder("Roll"), fullPrice: 100 }
+    { id: id(), name: "Veg Roll", img: "https://source.unsplash.com/featured/?vegetable+roll,wrap", fullPrice: 50 },
+    { id: id(), name: "Egg Roll", img: "https://source.unsplash.com/featured/?egg+roll,egg+wrap", fullPrice: 70 },
+    { id: id(), name: "Chicken Roll", img: "https://source.unsplash.com/featured/?chicken+roll,wrap+chicken", fullPrice: 90 },
+    { id: id(), name: "Pork Roll", img: "https://source.unsplash.com/featured/?pork+roll,meat+roll", fullPrice: 100 }
   ],
 
   "Paneer": [
-  { id: id(), name: "Matar Paneer", img: placeholder("Paneer"), fullPrice: 140 },
-  { id: id(), name: "Kadai Paneer", img: placeholder("Paneer"), fullPrice: 150 },
-  { id: id(), name: "Chilli Paneer (Gravy)", img: placeholder("Paneer"), fullPrice: 160 },
-  { id: id(), name: "Paneer Do Pyaza", img: placeholder("Paneer"), fullPrice: 160 },
-  { id: id(), name: "Paneer Butter Masala", img: placeholder("Paneer"), fullPrice: 170 },
-  { id: id(), name: "Sahi Paneer", img: placeholder("Paneer"), fullPrice: 180 },
-  { id: id(), name: "Palak Paneer (Seasonal)", img: placeholder("Paneer"), fullPrice: 200 },
-  { id: id(), name: "Paneer Masala", img: placeholder("Paneer"), fullPrice: 150 },
-  { id: id(), name: "Paneer Lababdar", img: placeholder("Paneer"), fullPrice: 170 }
-],
+    { id: id(), name: "Matar Paneer", img: "https://source.unsplash.com/featured/?matar+paneer,paneer+peas", fullPrice: 140 },
+    { id: id(), name: "Kadai Paneer", img: "https://source.unsplash.com/featured/?kadai+paneer,paneer+kadai", fullPrice: 150 },
+    { id: id(), name: "Chilli Paneer (Gravy)", img: "https://source.unsplash.com/featured/?chilli+paneer+gravy,paneer+gravy", fullPrice: 160 },
+    { id: id(), name: "Paneer Do Pyaza", img: "https://source.unsplash.com/featured/?paneer+do+pyaza,paneer+onions", fullPrice: 160 },
+    { id: id(), name: "Paneer Butter Masala", img: "https://source.unsplash.com/featured/?paneer+butter+masala,paneer+curry", fullPrice: 170 },
+    { id: id(), name: "Sahi Paneer", img: "https://source.unsplash.com/featured/?shahi+paneer,creamy+paneer", fullPrice: 180 },
+    { id: id(), name: "Palak Paneer (Seasonal)", img: "https://source.unsplash.com/featured/?palak+paneer,spinach+paneer", fullPrice: 200 },
+    { id: id(), name: "Paneer Masala", img: "https://source.unsplash.com/featured/?paneer+masala,paneer+spicy", fullPrice: 150 },
+    { id: id(), name: "Paneer Lababdar", img: "https://source.unsplash.com/featured/?paneer+lababdar,creamy+paneer", fullPrice: 170 }
+  ],
 
   "Sabji": [
-  { id: id(), name: "Mix Vegetable", img: placeholder("Sabji"), fullPrice: 140 },
-  { id: id(), name: "Aloo Dum", img: placeholder("Aloo"), fullPrice: 80 },
-  { id: id(), name: "Kadai Vegetable", img: placeholder("Kadai"), fullPrice: 120 },
-  { id: id(), name: "Jeera Aloo", img: placeholder("Aloo"), fullPrice: 90 },
-  { id: id(), name: "Aloo Gobi", img: placeholder("AlooGobi"), fullPrice: 120 },
-  { id: id(), name: "Malai Kofta (4 Pcs.)", img: placeholder("Kofta"), fullPrice: 150 },
-  { id: id(), name: "Aloo Bhaji", img: placeholder("Aloo"), fullPrice: 70 },
-  { id: id(), name: "Channa Masala", img: placeholder("Channa"), fullPrice: 120 }
-]
-,
+    { id: id(), name: "Mix Vegetable", img: "https://source.unsplash.com/featured/?mixed+vegetable,curry+vegetable", fullPrice: 140 },
+    { id: id(), name: "Aloo Dum", img: "https://source.unsplash.com/featured/?aloo+dum,spicy+potato", fullPrice: 80 },
+    { id: id(), name: "Kadai Vegetable", img: "https://source.unsplash.com/featured/?kadai+vegetable,mixed+vegetable+kadai", fullPrice: 120 },
+    { id: id(), name: "Jeera Aloo", img: "https://source.unsplash.com/featured/?jeera+aloo,cumin+potato", fullPrice: 90 },
+    { id: id(), name: "Aloo Gobi", img: "https://source.unsplash.com/featured/?aloo+gobi,potato+cauliflower", fullPrice: 120 },
+    { id: id(), name: "Malai Kofta (4 Pcs.)", img: "https://source.unsplash.com/featured/?malai+kofta,kofta+curry", fullPrice: 150 },
+    { id: id(), name: "Aloo Bhaji", img: "https://source.unsplash.com/featured/?aloo+bhaji,homestyle+potato", fullPrice: 70 },
+    { id: id(), name: "Channa Masala", img: "https://source.unsplash.com/featured/?channa+masala,chole", fullPrice: 120 }
+  ],
 
   "Chinese": [
-  { id: id(), name: "Veg. Hakka Noodles", img: placeholder("Noodles"), fullPrice: 100 },
-  { id: id(), name: "Egg Hakka Noodles", img: placeholder("Noodles"), fullPrice: 130 },
-  { id: id(), name: "Chicken Hakka Noodles", img: placeholder("Noodles"), fullPrice: 150 },
-  { id: id(), name: "Pork Hakka Noodles", img: placeholder("Noodles"), fullPrice: 150 },
-  { id: id(), name: "Veg. Fried Rice", img: placeholder("Rice"), fullPrice: 80 },
-  { id: id(), name: "Egg Fried Rice", img: placeholder("Rice"), fullPrice: 90 },
-  { id: id(), name: "Chicken Fried Rice", img: placeholder("Rice"), fullPrice: 150 },
-  { id: id(), name: "Pork Fried Rice", img: placeholder("Rice"), fullPrice: 150 },
-  { id: id(), name: "Schwezan Fried Rice", img: placeholder("Rice"), fullPrice: 130 }
-],
+    { id: id(), name: "Veg. Hakka Noodles", img: "https://source.unsplash.com/featured/?hakka+noodles,vegetable+noodles", fullPrice: 100 },
+    { id: id(), name: "Egg Hakka Noodles", img: "https://source.unsplash.com/featured/?egg+noodles,hakka+egg+noodles", fullPrice: 130 },
+    { id: id(), name: "Chicken Hakka Noodles", img: "https://source.unsplash.com/featured/?chicken+noodles,hakka+chicken+noodles", fullPrice: 150 },
+    { id: id(), name: "Pork Hakka Noodles", img: "https://source.unsplash.com/featured/?pork+noodles,hakka+pork", fullPrice: 150 },
+    { id: id(), name: "Veg. Fried Rice", img: "https://source.unsplash.com/featured/?vegetable+fried+rice,fried+rice", fullPrice: 80 },
+    { id: id(), name: "Egg Fried Rice", img: "https://source.unsplash.com/featured/?egg+fried+rice,egg+rice", fullPrice: 90 },
+    { id: id(), name: "Chicken Fried Rice", img: "https://source.unsplash.com/featured/?chicken+fried+rice,fried+rice+chicken", fullPrice: 150 },
+    { id: id(), name: "Pork Fried Rice", img: "https://source.unsplash.com/featured/?pork+fried+rice,pork+rice", fullPrice: 150 },
+    { id: id(), name: "Schwezan Fried Rice", img: "https://source.unsplash.com/featured/?schezwan+fried+rice,schezwan+rice", fullPrice: 130 }
+  ],
 
   "Rice & Biryani": [
-    { id: id(), name: "Jeera Rice", img: placeholder("Rice"), fullPrice: 80 },
-    { id: id(), name: "Plain Rice", img: placeholder("Rice"), fullPrice: 60 },
-    { id: id(), name: "Peas Pulao", img: placeholder("Rice"), fullPrice: 100 },
-    { id: id(), name: "Veg Pulao", img: placeholder("Rice"), fullPrice: 100 },
-    { id: id(), name: "Veg Biryani (Half / Full)", img: placeholder("Biryani"), halfPrice: 100, fullPrice: 200 },
-    { id: id(), name: "Egg Biryani (Half / Full)", img: placeholder("Biryani"), halfPrice: 120, fullPrice: 240 },
-    { id: id(), name: "Chicken Biryani (Half / Full)", img: placeholder("Biryani"), halfPrice: 140, fullPrice: 280 },
-    { id: id(), name: "Mutton Biryani (Half / Full)", img: placeholder("Biryani"), halfPrice: 170, fullPrice: 340 }
+    { id: id(), name: "Jeera Rice", img: "https://source.unsplash.com/featured/?jeera+rice,cumin+rice", fullPrice: 80 },
+    { id: id(), name: "Plain Rice", img: "https://source.unsplash.com/featured/?plain+rice,steamed+rice", fullPrice: 60 },
+    { id: id(), name: "Peas Pulao", img: "https://source.unsplash.com/featured/?peas+pulao,green+peas+pulao", fullPrice: 100 },
+    { id: id(), name: "Veg Pulao", img: "https://source.unsplash.com/featured/?veg+pulao,vegetable+pulao", fullPrice: 100 },
+    { id: id(), name: "Veg Biryani (Half / Full)", img: "https://source.unsplash.com/featured/?veg+biryani,vegetable+biryani", halfPrice: 100, fullPrice: 200 },
+    { id: id(), name: "Egg Biryani (Half / Full)", img: "https://source.unsplash.com/featured/?egg+biryani,egg+biriyani", halfPrice: 120, fullPrice: 240 },
+    { id: id(), name: "Chicken Biryani (Half / Full)", img: "https://source.unsplash.com/featured/?chicken+biryani,chicken+biriyani", halfPrice: 140, fullPrice: 280 },
+    { id: id(), name: "Mutton Biryani (Half / Full)", img: "https://source.unsplash.com/featured/?mutton+biryani,mutton+biriyani", halfPrice: 170, fullPrice: 340 }
   ],
 
   "Egg": [
-  { id: id(), name: "Egg Boil (Single)", img: placeholder("EggBoil"), fullPrice: 20 },
-  { id: id(), name: "Egg Pouch", img: placeholder("EggPouch"), fullPrice: 20 },
-  { id: id(), name: "Egg Omlete (Double)", img: placeholder("EggOmlete"), fullPrice: 40 },
-  { id: id(), name: "Egg Bhurji (Double)", img: placeholder("EggBhurji"), fullPrice: 40 },
-  { id: id(), name: "Egg Curry (Double Egg)", img: placeholder("EggCurry"), fullPrice: 80 },
-  { id: id(), name: "Egg Omlette Curry", img: placeholder("EggOmletteCurry"), fullPrice: 80 }
-]
-,
+    { id: id(), name: "Egg Boil (Single)", img: "https://source.unsplash.com/featured/?boiled+egg,egg", fullPrice: 20 },
+    { id: id(), name: "Egg Pouch", img: "https://source.unsplash.com/featured/?egg+pouch,egg+snack", fullPrice: 20 },
+    { id: id(), name: "Egg Omlete (Double)", img: "https://source.unsplash.com/featured/?omelette,egg+omelette", fullPrice: 40 },
+    { id: id(), name: "Egg Bhurji (Double)", img: "https://source.unsplash.com/featured/?egg+bhurji,spicy+eggs", fullPrice: 40 },
+    { id: id(), name: "Egg Curry (Double Egg)", img: "https://source.unsplash.com/featured/?egg+curry,egg+gravy", fullPrice: 80 },
+    { id: id(), name: "Egg Omlette Curry", img: "https://source.unsplash.com/featured/?omelette+curry,egg+gravy", fullPrice: 80 }
+  ],
+
   "Chicken": [
-  { id: id(), name: "Chicken Masala (Half / Full)", img: placeholder("ChickenMasala"), halfPrice: 140, fullPrice: 280 },
-  { id: id(), name: "Chicken Curry (Half / Full)", img: placeholder("ChickenCurry"), halfPrice: 140, fullPrice: 280 },
-  { id: id(), name: "Chicken Dopyaza", img: placeholder("ChickenDopyaza"), fullPrice: 290 },
-  { id: id(), name: "Chicken Kadai", img: placeholder("ChickenKadai"), fullPrice: 260 },
-  { id: id(), name: "Chicken Butter Masala", img: placeholder("ChickenButterMasala"), fullPrice: 350 },
-  { id: id(), name: "Chicken Boil with Veg", img: placeholder("ChickenBoil"), fullPrice: 300 },
-  { id: id(), name: "Chicken Lollipop", img: placeholder("ChickenLollipop"), fullPrice: 180 },
-  { id: id(), name: "Chicken 65", img: placeholder("Chicken65"), fullPrice: 150 },
-  { id: id(), name: "Chicken Dry Fry", img: placeholder("ChickenDryFry"), fullPrice: 150 },
-  { id: id(), name: "Chicken Liver Fry", img: placeholder("ChickenLiver"), fullPrice: 150 },
-  { id: id(), name: "Chicken Kebab (Bangalore Style)", img: placeholder("ChickenKebab"), fullPrice: 170 },
-  { id: id(), name: "Chilli Chicken Dry", img: placeholder("ChilliChicken"), fullPrice: 150 }
-]
-,
+    { id: id(), name: "Chicken Masala (Half / Full)", img: "https://source.unsplash.com/featured/?chicken+masala,spicy+chicken+curry", halfPrice: 140, fullPrice: 280 },
+    { id: id(), name: "Chicken Curry (Half / Full)", img: "https://source.unsplash.com/featured/?chicken+curry,indian+chicken+curry", halfPrice: 140, fullPrice: 280 },
+    { id: id(), name: "Chicken Dopyaza", img: "https://source.unsplash.com/featured/?chicken+dopyaza,spiced+chicken", fullPrice: 290 },
+    { id: id(), name: "Chicken Kadai", img: "https://source.unsplash.com/featured/?kadai+chicken,chicken+kadai", fullPrice: 260 },
+    { id: id(), name: "Chicken Butter Masala", img: "https://source.unsplash.com/featured/?chicken+butter+masala,butter+chicken", fullPrice: 350 },
+    { id: id(), name: "Chicken Boil with Veg", img: "https://source.unsplash.com/featured/?boiled+chicken,boiled+chicken+veg", fullPrice: 300 },
+    { id: id(), name: "Chicken Lollipop", img: "https://source.unsplash.com/featured/?chicken+lollipop,deep+fried+chicken", fullPrice: 180 },
+    { id: id(), name: "Chicken 65", img: "https://source.unsplash.com/featured/?chicken+65,indian+starter", fullPrice: 150 },
+    { id: id(), name: "Chicken Dry Fry", img: "https://source.unsplash.com/featured/?chicken+dry+fry,stir+fry+chicken", fullPrice: 150 },
+    { id: id(), name: "Chicken Liver Fry", img: "https://source.unsplash.com/featured/?chicken+liver+fry,liver+fry", fullPrice: 150 },
+    { id: id(), name: "Chicken Kebab (Bangalore Style)", img: "https://source.unsplash.com/featured/?chicken+kebab,kebab", fullPrice: 170 },
+    { id: id(), name: "Chilli Chicken Dry", img: "https://source.unsplash.com/featured/?chilli+chicken,chilli+chicken+dry", fullPrice: 150 }
+  ],
 
   "Local Chicken": [
-    { id: id(), name: "Local Chicken Curry (Half / Full)", img: placeholder("Chicken"), halfPrice: 150, fullPrice: 300 },
-    { id: id(), name: "Local Chicken Masala (Half / Full)", img: placeholder("Chicken"), halfPrice: 160, fullPrice: 320 },
-    { id: id(), name: "Local Chicken Fry (Half / Full)", img: placeholder("Chicken"), halfPrice: 160, fullPrice: 320 },
-    { id: id(), name: "Local Chicken Boil (Half / Full)", img: placeholder("Chicken"), halfPrice: 200, fullPrice: 400 }
+    { id: id(), name: "Local Chicken Curry (Half / Full)", img: "https://source.unsplash.com/featured/?village+chicken+curry,local+chicken", halfPrice: 150, fullPrice: 300 },
+    { id: id(), name: "Local Chicken Masala (Half / Full)", img: "https://source.unsplash.com/featured/?local+chicken+masala,regional+chicken", halfPrice: 160, fullPrice: 320 },
+    { id: id(), name: "Local Chicken Fry (Half / Full)", img: "https://source.unsplash.com/featured/?local+chicken+fry,fried+chicken+local", halfPrice: 160, fullPrice: 320 },
+    { id: id(), name: "Local Chicken Boil (Half / Full)", img: "https://source.unsplash.com/featured/?boiled+local+chicken,boiled+chicken", halfPrice: 200, fullPrice: 400 }
   ],
 
   "Mutton": [
-    { id: id(), name: "Mutton Masala Curry (Half / Full)", img: placeholder("Mutton"), halfPrice: 140, fullPrice: 280 },
-    { id: id(), name: "Mutton Masala", img: placeholder("Mutton"), fullPrice: 300 },
-    { id: id(), name: "Mutton Kosha", img: placeholder("Mutton"), fullPrice: 320 },
-    { id: id(), name: "Mutton Rezala", img: placeholder("Mutton"), fullPrice: 340 }
+    { id: id(), name: "Mutton Masala Curry (Half / Full)", img: "https://source.unsplash.com/featured/?mutton+masala,mutton+curry", halfPrice: 140, fullPrice: 280 },
+    { id: id(), name: "Mutton Masala", img: "https://source.unsplash.com/featured/?mutton+masala,goat+curry", fullPrice: 300 },
+    { id: id(), name: "Mutton Kosha", img: "https://source.unsplash.com/featured/?mutton+kosha,slow+cooked+mutton", fullPrice: 320 },
+    { id: id(), name: "Mutton Rezala", img: "https://source.unsplash.com/featured/?mutton+rezala,rezala", fullPrice: 340 }
   ],
 
   "Pork": [
-    { id: id(), name: "Pork Curry (Half / Full)", img: placeholder("Pork"), halfPrice: 130, fullPrice: 250 },
-    { id: id(), name: "Pork Fry / Sliced (Half / Full)", img: placeholder("Pork"), halfPrice: 130, fullPrice: 250 },
-    { id: id(), name: "Boil Pork with Bamboo Shoot (Half / Full)", img: placeholder("Pork"), halfPrice: 140, fullPrice: 280 }
+    { id: id(), name: "Pork Curry (Half / Full)", img: "https://source.unsplash.com/featured/?pork+curry,pork+gravy", halfPrice: 130, fullPrice: 250 },
+    { id: id(), name: "Pork Fry / Sliced (Half / Full)", img: "https://source.unsplash.com/featured/?pork+fry,sliced+pork", halfPrice: 130, fullPrice: 250 },
+    { id: id(), name: "Boil Pork with Bamboo Shoot (Half / Full)", img: "https://source.unsplash.com/featured/?pork+bamboo+shoots,bamboo+pork", halfPrice: 140, fullPrice: 280 }
   ],
 
   "Fish": [
-  { id: id(), name: "Fish Fry (Bhangon / Boriala)", img: placeholder("FishFry"), fullPrice: 100 },
-  { id: id(), name: "Fish Fry (Bahu)", img: placeholder("FishFryBahu"), fullPrice: 90 },
-  { id: id(), name: "Fish Tenga (Tomato)", img: placeholder("FishTenga"), fullPrice: 110 },
-  { id: id(), name: "Fish Curry Bahu (Mustard Seed / Tomato)", img: placeholder("FishCurryBahu"), fullPrice: 110 },
-  { id: id(), name: "Fish Curry (Local) (Bhangon / Boriala) Leafy Green / Mustard Seed / Tomato", img: placeholder("FishCurryLocal"), fullPrice: 150 }
-]
-,
+    { id: id(), name: "Fish Fry (Bhangon / Boriala)", img: "https://source.unsplash.com/featured/?fish+fry,fish+fried", fullPrice: 100 },
+    { id: id(), name: "Fish Fry (Bahu)", img: "https://source.unsplash.com/featured/?fish+fry+baha,grilled+fish", fullPrice: 90 },
+    { id: id(), name: "Fish Tenga (Tomato)", img: "https://source.unsplash.com/featured/?fish+tenga,tomato+fish+curry", fullPrice: 110 },
+    { id: id(), name: "Fish Curry Bahu (Mustard Seed / Tomato)", img: "https://source.unsplash.com/featured/?mustard+fish+ curry,fish+mustard", fullPrice: 110 },
+    { id: id(), name: "Fish Curry (Local) (Bhangon / Boriala) Leafy Green / Mustard Seed / Tomato", img: "https://source.unsplash.com/featured/?local+fish+curry,regional+fish+curry", fullPrice: 150 }
+  ],
 
   "Duck": [
-    { id: id(), name: "Duck Fry", img: placeholder("Duck"), fullPrice: 150 },
-    { id: id(), name: "Duck Curry (Half / Full)", img: placeholder("Duck"), halfPrice: 150, fullPrice: 320 }
+    { id: id(), name: "Duck Fry", img: "https://source.unsplash.com/featured/?duck+fry,duck+meat", fullPrice: 150 },
+    { id: id(), name: "Duck Curry (Half / Full)", img: "https://source.unsplash.com/featured/?duck+curry,duck+gravy", halfPrice: 150, fullPrice: 320 }
   ],
 
   "Dal & Sides": [
-    { id: id(), name: "Dal Tadka (Half / Full)", img: placeholder("Dal"), halfPrice: 80, fullPrice: 150 },
-    { id: id(), name: "Egg Dal Tadka (Half / Full)", img: placeholder("Dal"), halfPrice: 100, fullPrice: 200 },
-    { id: id(), name: "Dal Fry", img: placeholder("Dal"), halfPrice: 70, fullPrice: 140 },
-    { id: id(), name: "Dal Makhani", img: placeholder("Dal"), halfPrice: 100, fullPrice: 200 }
+    { id: id(), name: "Dal Tadka (Half / Full)", img: "https://source.unsplash.com/featured/?dal+tadka,dal", halfPrice: 80, fullPrice: 150 },
+    { id: id(), name: "Egg Dal Tadka (Half / Full)", img: "https://source.unsplash.com/featured/?egg+dal+ tadka,egg+dal", halfPrice: 100, fullPrice: 200 },
+    { id: id(), name: "Dal Fry", img: "https://source.unsplash.com/featured/?dal+fry,dal+fry", halfPrice: 70, fullPrice: 140 },
+    { id: id(), name: "Dal Makhani", img: "https://source.unsplash.com/featured/?dal+makhani,makhani", halfPrice: 100, fullPrice: 200 }
   ],
 
   "Salads": [
-    { id: id(), name: "Cucumber Salad", img: placeholder("Salad"), fullPrice: 50 },
-    { id: id(), name: "Onion Salad", img: placeholder("Salad"), fullPrice: 50 },
-    { id: id(), name: "Mix Salad", img: placeholder("Salad"), fullPrice: 70 }
+    { id: id(), name: "Cucumber Salad", img: "https://source.unsplash.com/featured/?cucumber+salad,salad", fullPrice: 50 },
+    { id: id(), name: "Onion Salad", img: "https://source.unsplash.com/featured/?onion+salad,salad+onion", fullPrice: 50 },
+    { id: id(), name: "Mix Salad", img: "https://source.unsplash.com/featured/?mixed+salad,salad+mixed", fullPrice: 70 }
   ]
 };
-
 
 /* --------- State --------- */
 let menuData = load() || DEFAULT_MENU;
