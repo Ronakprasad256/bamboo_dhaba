@@ -19,381 +19,148 @@ function placeholder(tag){
 /* --------- Default menu --------- */
 const DEFAULT_MENU = {
   "Veg": [
-    {
-      "name": "Kadai Vegetable",
-      "fullPrice": 140.00
-    },
-    {
-      "name": "Aloo Dum",
-      "fullPrice": 80.00
-    },
-    {
-      "name": "Jeera Aloo",
-      "fullPrice": 90.00
-    },
-    {
-      "name": "Malai Kofta (4 pcs)",
-      "fullPrice": 150.00
-    },
-    {
-      "name": "Channa Masala",
-      "fullPrice": 120.00
-    },
-    {
-      "name": "Paneer Butter Masala",
-      "fullPrice": 170.00
-    },
-    {
-      "name": "Matar Paneer",
-      "fullPrice": 140.00
-    },
-    {
-      "name": "Palak Paneer (seasonal)",
-      "fullPrice": 150.00
-    },
-    {
-      "name": "Veg Thali (Bamboo Hut Special Thali)",
-      "fullPrice": 100.00
-    }
+    { id: id(), name: "Kadai Vegetable", img: placeholder("Kadai"), fullPrice: 140 },
+    { id: id(), name: "Aloo Dum", img: placeholder("Aloo"), fullPrice: 80 },
+    { id: id(), name: "Jeera Aloo", img: placeholder("JeeraAloo"), fullPrice: 90 },
+    { id: id(), name: "Malai Kofta (4 pcs)", img: placeholder("Kofta"), fullPrice: 150 },
+    { id: id(), name: "Channa Masala", img: placeholder("Channa"), fullPrice: 120 },
+    { id: id(), name: "Paneer Butter Masala", img: placeholder("Paneer"), fullPrice: 170 },
+    { id: id(), name: "Matar Paneer", img: placeholder("Paneer"), fullPrice: 140 },
+    { id: id(), name: "Palak Paneer (seasonal)", img: placeholder("Palak"), fullPrice: 150 },
+    { id: id(), name: "Veg Thali (Bamboo Hut Special Thali)", img: placeholder("Thali"), fullPrice: 100 }
   ],
+
   "Starter": [
-    { "name": "French Fries", "fullPrice": 100.00 },
-    { "name": "Pea Nut Masala", "fullPrice": 60.00 },
-    { "name": "Kaju Fry", "fullPrice": 100.00 },
-    { "name": "Masala Papad", "fullPrice": 30.00 },
-    { "name": "Papad Fry (2 Pcs)", "fullPrice": 40.00 },
-    { "name": "Dry Papad (2 Pcs)", "fullPrice": 20.00 },
-    { "name": "Chana Fry", "fullPrice": 80.00 },
-    { "name": "Veg. Pakora", "fullPrice": 100.00 },
-    { "name": "Paneer Pakora", "fullPrice": 120.00 },
-    { "name": "Chicken Pakora", "fullPrice": 140.00 },
-    { "name": "Crispy Baby Corn", "fullPrice": 180.00 },
-    { "name": "Paneer 65", "fullPrice": 160.00 },
-    { "name": "Baby Potato Fry", "fullPrice": 60.00 },
-    { "name": "Chilli Paneer (Dry)", "fullPrice": 150.00 }
+    { id: id(), name: "French Fries", img: placeholder("Fries"), fullPrice: 100 },
+    { id: id(), name: "Pea Nut Masala", img: placeholder("Peanut"), fullPrice: 60 },
+    { id: id(), name: "Kaju Fry", img: placeholder("Kaju"), fullPrice: 100 },
+    { id: id(), name: "Masala Papad", img: placeholder("Papad"), fullPrice: 30 },
+    { id: id(), name: "Papad Fry (2 Pcs)", img: placeholder("Papad"), fullPrice: 40 },
+    { id: id(), name: "Dry Papad (2 Pcs)", img: placeholder("Papad"), fullPrice: 20 },
+    { id: id(), name: "Chana Fry", img: placeholder("Chana"), fullPrice: 80 },
+    { id: id(), name: "Veg. Pakora", img: placeholder("Pakora"), fullPrice: 100 },
+    { id: id(), name: "Paneer Pakora", img: placeholder("Paneer"), fullPrice: 120 },
+    { id: id(), name: "Chicken Pakora", img: placeholder("Chicken"), fullPrice: 140 },
+    { id: id(), name: "Crispy Baby Corn", img: placeholder("Corn"), fullPrice: 180 },
+    { id: id(), name: "Paneer 65", img: placeholder("Paneer65"), fullPrice: 160 },
+    { id: id(), name: "Baby Potato Fry", img: placeholder("Potato"), fullPrice: 60 },
+    { id: id(), name: "Chilli Paneer (Dry)", img: placeholder("Paneer"), fullPrice: 150 }
   ],
+
   "Rolls": [
-    {
-      "name": "Veg Roll",
-      "fullPrice": 50.00
-    },
-    {
-      "name": "Egg Roll",
-      "fullPrice": 70.00
-    },
-    {
-      "name": "Chicken Roll",
-      "fullPrice": 90.00
-    },
-    {
-      "name": "Pork Roll",
-      "fullPrice": 100.00
-    }
+    { id: id(), name: "Veg Roll", img: placeholder("Roll"), fullPrice: 50 },
+    { id: id(), name: "Egg Roll", img: placeholder("Roll"), fullPrice: 70 },
+    { id: id(), name: "Chicken Roll", img: placeholder("Roll"), fullPrice: 90 },
+    { id: id(), name: "Pork Roll", img: placeholder("Roll"), fullPrice: 100 }
   ],
+
   "Paneer": [
-    {
-      "name": "Kadai Paneer",
-      "fullPrice": 140.00
-    },
-    {
-      "name": "Chilli Paneer (Gravy)",
-      "fullPrice": 160.00
-    },
-    {
-      "name": "Paneer Do Pyaza",
-      "fullPrice": 160.00
-    },
-    {
-      "name": "Paneer Butter Masala",
-      "fullPrice": 170.00
-    }
+    { id: id(), name: "Kadai Paneer", img: placeholder("Paneer"), fullPrice: 140 },
+    { id: id(), name: "Chilli Paneer (Gravy)", img: placeholder("Paneer"), fullPrice: 160 },
+    { id: id(), name: "Paneer Do Pyaza", img: placeholder("Paneer"), fullPrice: 160 },
+    { id: id(), name: "Paneer Butter Masala", img: placeholder("Paneer"), fullPrice: 170 }
   ],
+
   "Sabji": [
-    {
-      "name": "Mix Vegetable",
-      "fullPrice": 140.00
-    },
-    {
-      "name": "Aloo Gobi",
-      "fullPrice": 120.00
-    },
-    {
-      "name": "Aloo Bhaji",
-      "fullPrice": 120.00
-    }
+    { id: id(), name: "Mix Vegetable", img: placeholder("Veg"), fullPrice: 140 },
+    { id: id(), name: "Aloo Gobi", img: placeholder("AlooGobi"), fullPrice: 120 },
+    { id: id(), name: "Aloo Bhaji", img: placeholder("Aloo"), fullPrice: 120 }
   ],
+
   "Chinese": [
-    {
-      "name": "Veg Hakka Noodles",
-      "fullPrice": 100.00
-    },
-    {
-      "name": "Egg Hakka Noodles",
-      "fullPrice": 130.00
-    },
-    {
-      "name": "Chicken Hakka Noodles",
-      "fullPrice": 150.00
-    },
-    {
-      "name": "Veg Fried Rice",
-      "fullPrice": 80.00
-    },
-    {
-      "name": "Egg Fried Rice",
-      "fullPrice": 90.00
-    },
-    {
-      "name": "Chicken Fried Rice",
-      "fullPrice": 150.00
-    },
-    {
-      "name": "Schezwan Fried Rice",
-      "fullPrice": 130.00
-    }
+    { id: id(), name: "Veg Hakka Noodles", img: placeholder("Noodles"), fullPrice: 100 },
+    { id: id(), name: "Egg Hakka Noodles", img: placeholder("Noodles"), fullPrice: 130 },
+    { id: id(), name: "Chicken Hakka Noodles", img: placeholder("Noodles"), fullPrice: 150 },
+    { id: id(), name: "Veg Fried Rice", img: placeholder("Rice"), fullPrice: 80 },
+    { id: id(), name: "Egg Fried Rice", img: placeholder("Rice"), fullPrice: 90 },
+    { id: id(), name: "Chicken Fried Rice", img: placeholder("Rice"), fullPrice: 150 },
+    { id: id(), name: "Schezwan Fried Rice", img: placeholder("Rice"), fullPrice: 130 }
   ],
+
   "Rice & Biryani": [
-    {
-      "name": "Jeera Rice",
-      "fullPrice": 80.00
-    },
-    {
-      "name": "Plain Rice",
-      "fullPrice": 60.00
-    },
-    {
-      "name": "Peas Pulao",
-      "fullPrice": 100.00
-    },
-    {
-      "name": "Veg Pulao",
-      "fullPrice": 100.00
-    },
-    {
-      "name": "Veg Biryani (Half / Full)",
-      "halfPrice": 100.00,
-      "fullPrice": 200.00
-    },
-    {
-      "name": "Egg Biryani (Half / Full)",
-      "halfPrice": 120.00,
-      "fullPrice": 240.00
-    },
-    {
-      "name": "Chicken Biryani (Half / Full)",
-      "halfPrice": 140.00,
-      "fullPrice": 280.00
-    },
-    {
-      "name": "Mutton Biryani (Half / Full)",
-      "halfPrice": 170.00,
-      "fullPrice": 340.00
-    }
+    { id: id(), name: "Jeera Rice", img: placeholder("Rice"), fullPrice: 80 },
+    { id: id(), name: "Plain Rice", img: placeholder("Rice"), fullPrice: 60 },
+    { id: id(), name: "Peas Pulao", img: placeholder("Rice"), fullPrice: 100 },
+    { id: id(), name: "Veg Pulao", img: placeholder("Rice"), fullPrice: 100 },
+    { id: id(), name: "Veg Biryani (Half / Full)", img: placeholder("Biryani"), halfPrice: 100, fullPrice: 200 },
+    { id: id(), name: "Egg Biryani (Half / Full)", img: placeholder("Biryani"), halfPrice: 120, fullPrice: 240 },
+    { id: id(), name: "Chicken Biryani (Half / Full)", img: placeholder("Biryani"), halfPrice: 140, fullPrice: 280 },
+    { id: id(), name: "Mutton Biryani (Half / Full)", img: placeholder("Biryani"), halfPrice: 170, fullPrice: 340 }
   ],
-"Egg": [
-    {
-      "name": "Egg Boil (Single)",
-      "fullPrice": 20.00
-    },
-    {
-      "name": "Egg Omelette (Double)",
-      "fullPrice": 40.00
-    },
-    {
-      "name": "Egg Curry (Double Egg)",
-      "fullPrice": 80.00
-    }
+
+  "Egg": [
+    { id: id(), name: "Egg Boil (Single)", img: placeholder("Egg"), fullPrice: 20 },
+    { id: id(), name: "Egg Omelette (Double)", img: placeholder("Egg"), fullPrice: 40 },
+    { id: id(), name: "Egg Curry (Double Egg)", img: placeholder("Egg"), fullPrice: 80 }
   ],
+
   "Drinks": [
-    {
-      "name": "Tea",
-      "fullPrice": 20.00
-    },
-    {
-      "name": "Coffee",
-      "fullPrice": 30.00
-    },
-    {
-      "name": "Cold Drinks (Sprite/Coke/Fanta/Thumbs Up)",
-      "fullPrice": 50.00
-    }
+    { id: id(), name: "Tea", img: placeholder("Tea"), fullPrice: 20 },
+    { id: id(), name: "Coffee", img: placeholder("Coffee"), fullPrice: 30 },
+    { id: id(), name: "Cold Drinks (Sprite/Coke/Fanta/Thumbs Up)", img: placeholder("Drinks"), fullPrice: 50 }
   ],
+
   "Chicken": [
-    {
-      "name": "Chicken Masala (Half / Full)",
-      "halfPrice": 140.00,
-      "fullPrice": 280.00
-    },
-    {
-      "name": "Chicken Curry (Half / Full)",
-      "halfPrice": 140.00,
-      "fullPrice": 280.00
-    },
-    {
-      "name": "Chicken Dopyaza",
-      "fullPrice": 290.00
-    },
-    {
-      "name": "Chicken Kadai",
-      "fullPrice": 260.00
-    },
-    {
-      "name": "Chicken Butter Masala",
-      "fullPrice": 350.00
-    },
-    {
-      "name": "Chicken Boil with Veg",
-      "fullPrice": 300.00
-    },
-    {
-      "name": "Chicken Lollipop",
-      "fullPrice": 250.00
-    },
-    {
-      "name": "Chicken 65",
-      "fullPrice": 150.00
-    },
-    {
-      "name": "Chicken Dry Fry",
-      "fullPrice": 150.00
-    },
-    {
-      "name": "Chicken Kebab (Bangalore Style)",
-      "fullPrice": 170.00
-    },
-    {
-      "name": "Chilli Chicken Dry",
-      "fullPrice": 150.00
-    }
+    { id: id(), name: "Chicken Masala (Half / Full)", img: placeholder("Chicken"), halfPrice: 140, fullPrice: 280 },
+    { id: id(), name: "Chicken Curry (Half / Full)", img: placeholder("Curry"), halfPrice: 140, fullPrice: 280 },
+    { id: id(), name: "Chicken Dopyaza", img: placeholder("Chicken"), fullPrice: 290 },
+    { id: id(), name: "Chicken Kadai", img: placeholder("Chicken"), fullPrice: 260 },
+    { id: id(), name: "Chicken Butter Masala", img: placeholder("Chicken"), fullPrice: 350 },
+    { id: id(), name: "Chicken Boil with Veg", img: placeholder("Chicken"), fullPrice: 300 },
+    { id: id(), name: "Chicken Lollipop", img: placeholder("Chicken"), fullPrice: 250 },
+    { id: id(), name: "Chicken 65", img: placeholder("Chicken65"), fullPrice: 150 },
+    { id: id(), name: "Chicken Dry Fry", img: placeholder("Chicken"), fullPrice: 150 },
+    { id: id(), name: "Chicken Kebab (Bangalore Style)", img: placeholder("Kebab"), fullPrice: 170 },
+    { id: id(), name: "Chilli Chicken Dry", img: placeholder("Chicken"), fullPrice: 150 }
   ],
+
   "Local Chicken": [
-    {
-      "name": "Local Chicken Curry (Half / Full)",
-      "halfPrice": 150.00,
-      "fullPrice": 300.00
-    },
-    {
-      "name": "Local Chicken Masala (Half / Full)",
-      "halfPrice": 160.00,
-      "fullPrice": 320.00
-    },
-    {
-      "name": "Local Chicken Fry (Half / Full)",
-      "halfPrice": 160.00,
-      "fullPrice": 320.00
-    },
-    {
-      "name": "Local Chicken Boil (Half / Full)",
-      "halfPrice": 200.00,
-      "fullPrice": 400.00
-    }
+    { id: id(), name: "Local Chicken Curry (Half / Full)", img: placeholder("Chicken"), halfPrice: 150, fullPrice: 300 },
+    { id: id(), name: "Local Chicken Masala (Half / Full)", img: placeholder("Chicken"), halfPrice: 160, fullPrice: 320 },
+    { id: id(), name: "Local Chicken Fry (Half / Full)", img: placeholder("Chicken"), halfPrice: 160, fullPrice: 320 },
+    { id: id(), name: "Local Chicken Boil (Half / Full)", img: placeholder("Chicken"), halfPrice: 200, fullPrice: 400 }
   ],
+
   "Mutton": [
-    {
-      "name": "Mutton Masala Curry (Half / Full)",
-      "halfPrice": 140.00,
-      "fullPrice": 280.00
-    },
-    {
-      "name": "Mutton Masala",
-      "fullPrice": 300.00
-    },
-    {
-      "name": "Mutton Kosha",
-      "fullPrice": 320.00
-    },
-    {
-      "name": "Mutton Rezala",
-      "fullPrice": 340.00
-    }
+    { id: id(), name: "Mutton Masala Curry (Half / Full)", img: placeholder("Mutton"), halfPrice: 140, fullPrice: 280 },
+    { id: id(), name: "Mutton Masala", img: placeholder("Mutton"), fullPrice: 300 },
+    { id: id(), name: "Mutton Kosha", img: placeholder("Mutton"), fullPrice: 320 },
+    { id: id(), name: "Mutton Rezala", img: placeholder("Mutton"), fullPrice: 340 }
   ],
+
   "Pork": [
-    {
-      "name": "Pork Curry (Half / Full)",
-      "halfPrice": 130.00,
-      "fullPrice": 250.00
-    },
-    {
-      "name": "Pork Fry / Sliced (Half / Full)",
-      "halfPrice": 130.00,
-      "fullPrice": 250.00
-    },
-    {
-      "name": "Boil Pork with Bamboo Shoot (Half / Full)",
-      "halfPrice": 140.00,
-      "fullPrice": 280.00
-    }
+    { id: id(), name: "Pork Curry (Half / Full)", img: placeholder("Pork"), halfPrice: 130, fullPrice: 250 },
+    { id: id(), name: "Pork Fry / Sliced (Half / Full)", img: placeholder("Pork"), halfPrice: 130, fullPrice: 250 },
+    { id: id(), name: "Boil Pork with Bamboo Shoot (Half / Full)", img: placeholder("Pork"), halfPrice: 140, fullPrice: 280 }
   ],
+
   "Fish": [
-    {
-      "name": "Fish Fry (Plate)",
-      "fullPrice": 100.00
-    },
-    {
-      "name": "Fish Fry (Bahu)",
-      "fullPrice": 90.00
-    },
-    {
-      "name": "Fish Tenga (Tomato)",
-      "fullPrice": 110.00
-    },
-    {
-      "name": "Fish Curry Bahu (Mustard/Tomato)",
-      "fullPrice": 110.00
-    },
-    {
-      "name": "Fish Curry (Local)",
-      "fullPrice": 150.00
-    }
+    { id: id(), name: "Fish Fry (Plate)", img: placeholder("Fish"), fullPrice: 100 },
+    { id: id(), name: "Fish Fry (Bahu)", img: placeholder("Fish"), fullPrice: 90 },
+    { id: id(), name: "Fish Tenga (Tomato)", img: placeholder("Fish"), fullPrice: 110 },
+    { id: id(), name: "Fish Curry Bahu (Mustard/Tomato)", img: placeholder("Fish"), fullPrice: 110 },
+    { id: id(), name: "Fish Curry (Local)", img: placeholder("Fish"), fullPrice: 150 }
   ],
+
   "Duck": [
-    {
-      "name": "Duck Fry",
-      "fullPrice": 150.00
-    },
-    {
-      "name": "Duck Curry (Half / Full)",
-      "halfPrice": 150.00,
-      "fullPrice": 320.00
-    }
+    { id: id(), name: "Duck Fry", img: placeholder("Duck"), fullPrice: 150 },
+    { id: id(), name: "Duck Curry (Half / Full)", img: placeholder("Duck"), halfPrice: 150, fullPrice: 320 }
   ],
+
   "Dal & Sides": [
-    {
-      "name": "Dal Tadka (Half / Full)",
-      "halfPrice": 80.00,
-      "fullPrice": 150.00
-    },
-    {
-      "name": "Egg Dal Tadka (Half / Full)",
-      "halfPrice": 100.00,
-      "fullPrice": 200.00
-    },
-    {
-      "name": "Dal Fry",
-      "halfPrice": 70.00,
-      "fullPrice": 140.00
-    },
-    {
-      "name": "Dal Makhani",
-      "halfPrice": 100.00,
-      "fullPrice": 200.00
-    }
+    { id: id(), name: "Dal Tadka (Half / Full)", img: placeholder("Dal"), halfPrice: 80, fullPrice: 150 },
+    { id: id(), name: "Egg Dal Tadka (Half / Full)", img: placeholder("Dal"), halfPrice: 100, fullPrice: 200 },
+    { id: id(), name: "Dal Fry", img: placeholder("Dal"), halfPrice: 70, fullPrice: 140 },
+    { id: id(), name: "Dal Makhani", img: placeholder("Dal"), halfPrice: 100, fullPrice: 200 }
   ],
+
   "Salads": [
-    {
-      "name": "Cucumber Salad",
-      "fullPrice": 50.00
-    },
-    {
-      "name": "Onion Salad",
-      "fullPrice": 50.00
-    },
-    {
-      "name": "Mix Salad",
-      "fullPrice": 70.00
-    }
+    { id: id(), name: "Cucumber Salad", img: placeholder("Salad"), fullPrice: 50 },
+    { id: id(), name: "Onion Salad", img: placeholder("Salad"), fullPrice: 50 },
+    { id: id(), name: "Mix Salad", img: placeholder("Salad"), fullPrice: 70 }
   ]
 };
+
 
 /* --------- State --------- */
 let menuData = load() || DEFAULT_MENU;
