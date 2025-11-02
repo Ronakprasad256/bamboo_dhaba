@@ -19,14 +19,144 @@ function placeholder(tag){
 /* --------- Default menu --------- */
 const DEFAULT_MENU = {
   "Veg": [
-    { id: id(), name: "Kadai Vegetable", img: placeholder("Kadai"), fullPrice: 140 },
-    { id: id(), name: "Malai Kofta", img: placeholder("Kofta"), fullPrice: 150 },
-    { id: id(), name: "Paneer Butter Masala", img: placeholder("Paneer"), fullPrice: 170 }
+    {
+      "name": "Kadai Vegetable",
+      "priceFull": 140.00
+    },
+    {
+      "name": "Aloo Dum",
+      "priceFull": 80.00
+    },
+    {
+      "name": "Jeera Aloo",
+      "priceFull": 90.00
+    },
+    {
+      "name": "Malai Kofta (4 pcs)",
+      "priceFull": 150.00
+    },
+    {
+      "name": "Channa Masala",
+      "priceFull": 120.00
+    },
+    {
+      "name": "Paneer Butter Masala",
+      "priceFull": 170.00
+    },
+    {
+      "name": "Matar Paneer",
+      "priceFull": 140.00
+    },
+    {
+      "name": "Palak Paneer (seasonal)",
+      "priceFull": 150.00
+    },
+    {
+      "name": "Veg Thali (Bamboo Hut Special Thali)",
+      "priceFull": 100.00
+    }
   ],
-  "Chicken": [
-    { id: id(), name: "Chicken Curry (Half / Full)", img: placeholder("Curry"), halfPrice: 140, fullPrice: 280 },
-    { id: id(), name: "Chicken Biryani (Half / Full)", img: placeholder("Biryani"), halfPrice: 150, fullPrice: 300 },
-    { id: id(), name: "Chicken 65", img: placeholder("Chicken65"), fullPrice: 150 }
+  "Starters": [
+    {
+      "name": "French Fries",
+      "priceFull": 100.00
+    },
+    {
+      "name": "Paneer Pakora",
+      "priceFull": 120.00
+    },
+    {
+      "name": "Chicken Pakora",
+      "priceFull": 140.00
+    },
+    {
+      "name": "Crispy Baby Corn",
+      "priceFull": 180.00
+    },
+    {
+      "name": "Chilli Paneer (Dry)",
+      "priceFull": 150.00
+    }
+  ],
+  "Rolls": [
+    {
+      "name": "Veg Roll",
+      "priceFull": 50.00
+    },
+    {
+      "name": "Egg Roll",
+      "priceFull": 70.00
+    },
+    {
+      "name": "Chicken Roll",
+      "priceFull": 90.00
+    },
+    {
+      "name": "Pork Roll",
+      "priceFull": 100.00
+    }
+  ],
+  "Paneer": [
+    {
+      "name": "Kadai Paneer",
+      "priceFull": 140.00
+    },
+    {
+      "name": "Chilli Paneer (Gravy)",
+      "priceFull": 160.00
+    },
+    {
+      "name": "Paneer Do Pyaza",
+      "priceFull": 160.00
+    },
+    {
+      "name": "Paneer Butter Masala",
+      "priceFull": 170.00
+    }
+  ],
+  "Sabji": [
+    {
+      "name": "Mix Vegetable",
+      "priceFull": 140.00
+    },
+    {
+      "name": "Aloo Gobi",
+      "priceFull": 120.00
+    },
+    {
+      "name": "Aloo Bhaji",
+      "priceFull": 120.00
+    }
+  ],
+  "Chinese": [
+    {
+      "name": "Veg Hakka Noodles",
+      "priceFull": 100.00
+    },
+    {
+      "name": "Egg Hakka Noodles",
+      "priceFull": 130.00
+    },
+    {
+      "name": "Chicken Hakka Noodles",
+      "priceFull": 150.00
+    },
+    {
+      "name": "Veg Fried Rice",
+      "priceFull": 80.00
+    },
+    {
+      "name": "Egg Fried Rice",
+      "priceFull": 90.00
+    },
+    {
+      "name": "Chicken Fried Rice",
+      "priceFull": 150.00
+    },
+    {
+      "name": "Schezwan Fried Rice",
+      "priceFull": 130.00
+    }
   ]
 };
 
