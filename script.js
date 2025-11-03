@@ -19,7 +19,32 @@ function placeholder(tag){
 
 /* --------- Default menu (with real dish photo queries) --------- */
 const DEFAULT_MENU = {
-
+ "Veg": [
+  { id: id(), name: "Kadai Vegetable", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYt8qDy7E7d2x-GZsDnV7yOKZlCKo7jV1AxA&s", fullPrice: 140 },
+  { id: id(), name: "Aloo Dum", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6rcR8oM-0cb0V6FS6iWUxPpH9Ixm4EXv6Uw&s", fullPrice: 80 },
+  { id: id(), name: "Malai Kofta", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgMWF5a7-3OepAGg7klEek4P3ZPySmf5ikAw&s", fullPrice: 140 },
+  { id: id(), name: "Mix Veg Curry", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7tBdENIxyX1MTksMyRCyWfqCjTMsfIYo5zQ&s", fullPrice: 120 },
+  { id: id(), name: "Paneer Butter Masala", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmhYTuLJ9TKLACtZGc_8EYCT6Fh3x9xY5oQA&s", fullPrice: 150 },
+  { id: id(), name: "Paneer Do Pyaza", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV8sdYTxTr3dpS60EVCaHkeF9VUZq9-4Wr6Q&s", fullPrice: 150 },
+  { id: id(), name: "Paneer Lababdar", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5ViqLTb1H8G7qRTbmwA8dwXrKqO-Y5EUfVQ&s", fullPrice: 160 },
+  { id: id(), name: "Paneer Tikka Masala", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPnXo8Y3JqfCsdTbPVr2UMiYQkiRivMUtW6w&s", fullPrice: 160 },
+  { id: id(), name: "Matar Paneer", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9AbE8uFfKZlIAGux5ec8VhWdr9cX4l88mgw&s", fullPrice: 130 },
+  { id: id(), name: "Palak Paneer", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzjFgNsS7MXfrlwZ4QDwV2vEanZk4qxJ2Mhw&s", fullPrice: 130 },
+  { id: id(), name: "Shahi Paneer", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkK7F9a-RBzwH3ydnEs5SKGHqDKCnb8jK1Og&s", fullPrice: 150 },
+  { id: id(), name: "Paneer Bhurji", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3HzQY14A4P3iL8LM9a3HYD1hEdk1lKY9_QA&s", fullPrice: 140 },
+  { id: id(), name: "Veg Korma", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKLgTrnVJtQW6OlKcIYX_A_t6tU8IhvQyi3A&s", fullPrice: 130 },
+  { id: id(), name: "Chana Masala", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6A2gBEnj4oMdiRuIl27dbsYzz-y5-3eCClA&s", fullPrice: 100 },
+  { id: id(), name: "Bhindi Masala", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQU9-wYzjH2MeaY8PCZKx6_YPtwVf9hl4IHg&s", fullPrice: 110 },
+  { id: id(), name: "Aloo Gobi", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8xvAqgcEuq4BvkkFn7zMB-JsZpG0mY1ik2A&s", fullPrice: 110 },
+  { id: id(), name: "Baingan Bharta", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyVhoBGuNsdCe1lD1pwa4B2p4dXz9O7mEq5A&s", fullPrice: 120 },
+  { id: id(), name: "Dum Aloo", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9CSvT0Ouj5E5wYq6U5oLzF-l1x8v3uEv9fQ&s", fullPrice: 120 },
+  { id: id(), name: "Jeera Aloo", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqXsaMxXcZ1lE2TRC2tN3R2cPpsHqBsvvTPA&s", fullPrice: 100 },
+  { id: id(), name: "Dal Tadka", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1QgsnEdEzBEm1POZce8bQZV__4pM8aZdvSw&s", fullPrice: 100 },
+  { id: id(), name: "Dal Fry", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJLLxSefTHOPFt0sVuXcRVMTQ1suMmxMn8uA&s", fullPrice: 100 },
+  { id: id(), name: "Dal Makhani", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ErV21vx1ZnAQ6kKZ8WexgHC4x2R6kUuQDw&s", fullPrice: 130 },
+  { id: id(), name: "Veg Kofta", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUp5KQ3DSEaJXK7j7Z2uKuOKScI6CLeMkgMw&s", fullPrice: 130 },
+  { id: id(), name: "Paneer Handi", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMmN0ZxFiC7ihXOkGxgxzJvT7HPQgi48oHzQ&s", fullPrice: 160 }
+],
   "Drinks": [
     { id: id(), name: "Tea", img: "https://source.unsplash.com/featured/?tea,chai", fullPrice: 20 },
     { id: id(), name: "Coffee", img: "https://source.unsplash.com/featured/?coffee,black+coffee", fullPrice: 30 },
